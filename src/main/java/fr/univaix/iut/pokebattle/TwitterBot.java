@@ -27,10 +27,12 @@ public class TwitterBot {
                         return;
                     }
 
-                    String response = bot.ask(status.getText());
+                    String response = bot.ask(status);
                     if (response != null)
+                    {
+                    	logger.info("Tweet envoyé");
                         twitter.updateStatus(response);
-                    
+                    }
                 } catch (TwitterException e) {
                     e.printStackTrace();
                 }
