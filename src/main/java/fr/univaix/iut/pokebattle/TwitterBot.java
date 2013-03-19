@@ -27,7 +27,7 @@ public class TwitterBot {
                         return;
                     }
 
-                    String response = bot.ask(status);
+                    String response = bot.ask(new Tweet(status.getUser().getScreenName(), status.getText()));
                     if (response != null)
                     {
                     	logger.info("Tweet envoyé");

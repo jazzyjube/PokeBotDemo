@@ -19,7 +19,7 @@ public class PokeBot implements Bot {
      * @param question The question you ask.
      * @return An answer... or null if it doesn't get it.
      */
-    public String ask(Status question) {
+    public String ask(Tweet question) {
         for (SmartCell cell : smartCells) {
             String answer = cell.ask(question);
             if (answer != null)

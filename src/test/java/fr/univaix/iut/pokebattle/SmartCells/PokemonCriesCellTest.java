@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.SmartCells;
 
+import fr.univaix.iut.pokebattle.Tweet;
 import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
 import org.junit.Test;
 
@@ -11,12 +12,12 @@ public class PokemonCriesCellTest {
 
     @Test
     public void testSalut() {
-        assertEquals("Pika pika", cell.ask("Salut!"));
+        assertEquals("Pika pika", cell.ask(new Tweet("Salut!")));
     }
 
     @Test
     public void testNotSalut() {
-        assertEquals("Pika pika", cell.ask("au revoir"));
+        assertEquals("Pika pika", cell.ask(new Tweet("au revoir")));
     }
 
 }

@@ -2,13 +2,15 @@ package fr.univaix.iut.pokebattle.smartcells;
 
 import twitter4j.Status;
 import fr.univaix.iut.pokebattle.SmartCell;
+import fr.univaix.iut.pokebattle.Tweet;
+
 
 /**
  * Reply to all.
  */
 public class PokemonCriesCell implements SmartCell {
 
-    public String ask(Status question) {
+    public String ask(Tweet question) {
     	
     	String Tweet = question.getText();
     	
@@ -18,6 +20,4 @@ public class PokemonCriesCell implements SmartCell {
     	}
     	return null ;
     	}
-
-
 }
