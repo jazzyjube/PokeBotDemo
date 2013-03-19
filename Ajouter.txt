@@ -1,0 +1,6 @@
+META-INF/persistence.xml
+pom.xml
+Pokemon.java
+Attaque.java
+Possede.java
+App.java

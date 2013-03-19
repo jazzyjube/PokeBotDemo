@@ -16,7 +16,7 @@ public class PokemonCriesCell implements SmartCell {
     	
     	if (Tweet.contains("Salut"))
     	{
-    		return "Sala Sala, Salamèèèèèèche";
+    		return "Kai Kai, Kaiminuuuuuuus";
     	}
     	return null ;
     	}
