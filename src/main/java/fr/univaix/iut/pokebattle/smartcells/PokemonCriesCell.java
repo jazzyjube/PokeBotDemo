@@ -1,6 +1,6 @@
 package fr.univaix.iut.pokebattle.smartcells;
 
-import twitter4j.Status;
+
 import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 

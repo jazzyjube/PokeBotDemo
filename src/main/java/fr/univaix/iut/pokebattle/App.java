@@ -13,8 +13,8 @@ public class App
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
         EntityManager em = emf.createEntityManager();
 
-        Pokemon pika = em.find(Pokemon.class, "PIKACHU");
-        System.out.println("\n" + pika.getNomP() + " appartient a " + pika.getNomD());
+        // Pokemon pika = em.find(Pokemon.class, "PIKACHU");
+        // System.out.println("\n" + pika.getNomP() + " appartient a " + pika.getNomD());
         em.close();
         emf.close();
     }
