@@ -1,10 +1,11 @@
 package fr.univaix.iut.pokebattle.SmartCells;
 
-import fr.univaix.iut.pokebattle.Tweet;
-import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import fr.univaix.iut.pokebattle.Tweet;
+import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
 
 public class PokemonCriesCellTest {
 
