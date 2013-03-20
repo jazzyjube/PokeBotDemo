@@ -24,17 +24,29 @@ public class PokemonCatchCell implements SmartCell {
             
             Pokemon poke = em.find(Pokemon.class, NomPoke);
             
-            em.close();
-            emf.close();
             
             
-    		if (poke.getNomP().equals(NomPoke))
-    		{
+    		
     			if (poke.getNomD() == null)
-    				return "@" + Name + "no owner.";
+    			{
+    				em.getTransaction().begin();
+    				poke.setNomD(Name);
+    				em.persist(poke);
+    				em.getTransaction().commit();
+    				
+    				em.close();
+    	            emf.close();
+    				return "@" + Name + " @" + Name + " is my new owner !!!";
+    			}
+    				
     			else
-    				return "@" + Name + " @" + poke.getNomD() + " is my owner";
-    		}
+    			{
+    				em.close();
+    	            emf.close();
+    	            return "@" + Name + " @" + poke.getNomD() + " is my owner";
+    			}
+    				
+    		
     	}
     	
     	return null ;
