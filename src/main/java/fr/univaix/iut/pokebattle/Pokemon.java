@@ -1,6 +1,8 @@
 package fr.univaix.iut.pokebattle;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
  public class Pokemon {
@@ -12,7 +14,10 @@ import javax.persistence.*;
 	 @Column(name = "NOM_D")
    String nomD;
 	 
-	 @Column(name = "PVMAX")
+	 @Column(name="CRI")
+	 String cri;
+	 
+	@Column(name = "PVMAX")
 	 int pvMax;
 	 
 	 @Column(name="PVRESTANT")
@@ -27,21 +32,31 @@ import javax.persistence.*;
      // TODO Auto-generated constructor stub
    }    
      
-   public Pokemon(String nomP, String nomD, int pvMax, int pvRestant, int xp, int lvl) {
-     super();
-     this.nomP = nomP;
-     this.nomD = nomD;
-     this.pvMax = pvMax;
-     this.pvRestant = pvRestant;
-     this.xp = xp;
-     this.lvl = lvl;
-     
-   }
+public String getCri() {
+	return cri;
+}
+
+public void setCri(String cri) {
+	this.cri = cri;
+}
+
+public Pokemon(String nomP, String nomD, String cri, int pvMax,
+			int pvRestant, int xp, int lvl) {
+		super();
+		this.nomP = nomP;
+		this.nomD = nomD;
+		this.cri = cri;
+		this.pvMax = pvMax;
+		this.pvRestant = pvRestant;
+		this.xp = xp;
+		this.lvl = lvl;
+	}
 
 @Override
 public String toString() {
-	return "Pokemon [nomP=" + nomP + ", nomD=" + nomD + ", pvMax=" + pvMax
-			+ ", pvRestant=" + pvRestant + ", xp=" + xp + ", lvl=" + lvl + "]";
+	return "Pokemon [nomP=" + nomP + ", nomD=" + nomD + ", cri=" + cri
+			+ ", pvMax=" + pvMax + ", pvRestant=" + pvRestant + ", xp=" + xp
+			+ ", lvl=" + lvl + "]";
 }
 
 public String getNomP() {
