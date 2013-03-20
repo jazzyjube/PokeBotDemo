@@ -20,4 +20,9 @@ public class Tweet {
     public String getText() {
         return text;
     }
+    
+    public String getSubstring(int i) {
+    	String str[] = this.text.split(" ");
+    	return str[i].substring(1);
+    }
 }

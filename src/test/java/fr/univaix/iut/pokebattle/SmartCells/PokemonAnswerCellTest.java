@@ -1,10 +1,11 @@
 package fr.univaix.iut.pokebattle.SmartCells;
 
-import fr.univaix.iut.pokebattle.Tweet;
-import fr.univaix.iut.pokebattle.smartcells.PokemonAnswerCell;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import fr.univaix.iut.pokebattle.Tweet;
+import fr.univaix.iut.pokebattle.smartcells.PokemonAnswerCell;
 
 public class PokemonAnswerCellTest {
 
@@ -12,7 +13,7 @@ public class PokemonAnswerCellTest {
 
     @Test
     public void testSalutAnswer() {
-    	Tweet tweet = new Tweet("maitre_peter", "Salut Salamèche !");
+    	Tweet tweet = new Tweet("maitre_peter", "@sala_meche Salut Salamèche !");
         assertEquals("@maitre_peter Sala Sala, Salamèèèèèèche", cell.ask(tweet));
     }
 

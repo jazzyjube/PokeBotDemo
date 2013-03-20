@@ -1,6 +1,6 @@
 package fr.univaix.iut.pokebattle;
 
-import twitter4j.Status;
+import fr.univaix.iut.pokebattle.smartcells.PokemonCatchCell;
 import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
 
 
@@ -11,6 +11,7 @@ public class PokeBot implements Bot {
      */
     final SmartCell[] smartCells = new SmartCell[]{
             new PokemonCriesCell(),
+            new PokemonCatchCell(),
     };
 
     /**

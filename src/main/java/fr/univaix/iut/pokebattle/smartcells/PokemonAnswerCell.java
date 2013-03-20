@@ -1,9 +1,9 @@
 package fr.univaix.iut.pokebattle.smartcells;
 
+import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
-import twitter4j.Status;
 
-public class PokemonAnswerCell {
+public class PokemonAnswerCell implements SmartCell{
     public String ask(Tweet question) {
     	
     	String Tweet = question.getText();

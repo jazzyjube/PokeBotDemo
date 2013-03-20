@@ -1,5 +1,7 @@
 package fr.univaix.iut.pokebattle;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Attaque {
