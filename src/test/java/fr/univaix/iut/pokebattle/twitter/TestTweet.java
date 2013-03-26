@@ -1,8 +1,8 @@
-package fr.univaix.iut.pokebattle;
-
-import static org.junit.Assert.assertEquals;
+package fr.univaix.iut.pokebattle.twitter;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestTweet {
     @Test
