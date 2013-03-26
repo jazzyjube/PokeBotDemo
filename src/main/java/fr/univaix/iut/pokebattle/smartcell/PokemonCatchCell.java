@@ -16,11 +16,11 @@ public class PokemonCatchCell implements SmartCell {
     	
     	String Tweet = question.getText();
     	String Name = question.getScreenName();
-    	
+    	String NomPoke = question.getSubstring(0);
     	
     	if (Tweet.contains("Pokeball"))
     	{
-    		String NomPoke = Tweet.substring(0);
+    		
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
             
