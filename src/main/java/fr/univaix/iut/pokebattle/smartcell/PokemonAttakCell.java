@@ -16,7 +16,13 @@ public class PokemonAttakCell implements SmartCell {
     	String Tweet = question.getText();
     	String Name = question.getScreenName();
     	
-    	String str[] = Tweet.split(" ");
+    	
+
+    	if (Tweet.contains("attack"))
+    	{
+    		
+    		
+   		String str[] = Tweet.split(" ");
     	String adversaire = str[3];
     	String DressAdversaire = str[5];
     	
@@ -30,10 +36,8 @@ public class PokemonAttakCell implements SmartCell {
 
         Pokemon poke = em.find(Pokemon.class, pokemon);
         owner = poke.getNomD();
-
-    	if (Tweet.contains("attack"))
-    	{
-    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc @" + Name + " " + DressAdversaire; }
+    		
+    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc " + DressAdversaire + " @" + Name; }
     		
     		return "@" + Name + " @" + owner + " is my owner !";  
     	}
