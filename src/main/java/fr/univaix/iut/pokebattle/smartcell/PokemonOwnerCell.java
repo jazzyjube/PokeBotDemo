@@ -14,12 +14,13 @@ public class PokemonOwnerCell implements SmartCell {
     	String Tweet = question.getText();
     	String Name = question.getScreenName();
     	
-    	String str[] = Tweet.split(" ");
-    	String nompoke = str[0].substring(1);
+    	
     	
     	
     	if (Tweet.contains("Owner"))
     	{
+    		String str[] = Tweet.split(" ");
+    		String nompoke = str[0].substring(1);
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
 
