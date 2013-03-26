@@ -6,7 +6,6 @@ import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -16,7 +15,8 @@ public class PokemonCatchCell implements SmartCell {
     	
     	String Tweet = question.getText();
     	String Name = question.getScreenName();
-    	String NomPoke = Tweet.substring(0);
+    	String NomPoke = question.getSubstring(0);
+
     	
     	if (Tweet.contains("Pokeball"))
     	{

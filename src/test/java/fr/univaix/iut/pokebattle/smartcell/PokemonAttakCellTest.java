@@ -11,7 +11,7 @@ public class PokemonAttakCellTest {
     PokemonAttakCell cell = new PokemonAttakCell();
 
     @Test
-    public void testAttackAnswer() {
+    public void testAttakAnswer() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche #attack #griffe @kai_minus /cc @topdresseur_red");
         assertEquals("@kai_minus #attack #griffe! /cc @topdresseur_red @maitre_peter", cell.ask(tweet));
     }

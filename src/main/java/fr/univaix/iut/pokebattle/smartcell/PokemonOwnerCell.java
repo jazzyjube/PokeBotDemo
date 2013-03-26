@@ -27,7 +27,7 @@ public class PokemonOwnerCell implements SmartCell {
             
             em.close();
             emf.close();
-            if (poke.getNomD().equals("null"))
+            if (poke.getNomD()== null)
             	return "@" + Name + " No owner";
     		return "@" + Name + " @" + poke.getNomD() + " is my owner";
     	}

@@ -33,7 +33,7 @@ public class PokemonAttakCell implements SmartCell {
 
     	if (Tweet.contains("attack"))
     	{
-    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc @" + Name + " " + DressAdversaire; }
+    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc " + DressAdversaire + " @" + Name; }
     		
     		return "@" + Name + " @" + owner + " is my owner !";  
     	}
