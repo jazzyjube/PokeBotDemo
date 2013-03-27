@@ -1,12 +1,20 @@
 package fr.univaix.iut.pokebattle;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+@Entity
+@NamedQueries({
+    @NamedQuery(name = Combat.FIND_ALL, query = "SELECT c FROM Combat c"),
+    @NamedQuery(name = Combat.FIND_BY_POKE, query = "SELECT c " +
+    		"FROM Combat c WHERE c.poke1 = :pokeko or c.poke2 = :pokeko")
+})
 
 public class Combat {
+	public static final String FIND_BY_POKE = "findCombatByPoke";
+    public static final String FIND_ALL = "findAllCombat";
 	@Id
 	 @Column(name = "NUM_COMBAT")
-  int numCombat;
+  Integer numCombat;
 	
 	@Column(name = "POKE_1")
 	  String poke1;
