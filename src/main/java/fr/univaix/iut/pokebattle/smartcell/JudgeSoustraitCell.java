@@ -19,7 +19,7 @@ public class JudgeSoustraitCell implements SmartCell{
     	if(!(DressAdv.equals("/cc")))
     	{
     		String NomPokeAdv = question.getSubstring(0);
-    		//String Dress = question.getSubstring(5);
+    		String Dress = question.getSubstring(5);
     		
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
@@ -29,7 +29,7 @@ public class JudgeSoustraitCell implements SmartCell{
             em.close();
             emf.close();
             
-            return "@" + NomPokeAdv + " -10pv /cc @" + DressAdv;
+            return "@" + NomPokeAdv + " -10pv /cc @" + DressAdv + " by @" + Dress;
     	}
 		
 		return null;

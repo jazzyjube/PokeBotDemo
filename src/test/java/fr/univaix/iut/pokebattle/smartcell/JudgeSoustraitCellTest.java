@@ -14,6 +14,6 @@ public class JudgeSoustraitCellTest {
     @Test
     public void testJudgeAttakAnswer() throws TwitterException {
     	Tweet tweet = new Tweet("Kai_minus", "@sala_meche #attack #griffe /cc @maitre_peter @topdresseur_red @juge_otte");
-        assertEquals("@sala_meche -10pv /cc @maitre_peter", cell.ask(tweet)); 
+        assertEquals("@sala_meche -10pv /cc @maitre_peter by @topdresseur_red", cell.ask(tweet)); 
     }
 }
