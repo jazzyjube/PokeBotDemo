@@ -37,7 +37,7 @@ public class PokemonAttakCell implements SmartCell {
         Pokemon poke = em.find(Pokemon.class, pokemon);
         owner = poke.getNomD();
     		
-    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc " + DressAdversaire + " @" + Name; }
+    		if (Name.contains(owner)) { return adversaire + " #attack " + attack + "! /cc " + DressAdversaire + " @" + Name + " @juge_otte"; }
     		
     		return "@" + Name + " @" + owner + " is my owner !";  
     	}
