@@ -57,9 +57,24 @@ public class DAOCombatJpa implements DAOCombat {
 
 	@Override
 	public List<Combat> findByPoke(Pokemon poke) {
-		TypedQuery<Combat> query = entityManager.createQuery(Combat.FIND_BY_POKE, Combat.class);
-		query.setParameter("pokeko", poke);
+		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.FIND_BY_POKE, Combat.class);
+		query.setParameter("pokeko", poke.getNomP());
 		return query.getResultList();
+//		
+//	       TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.FIND_BY_TYPE, Pokemon.class);
+//	        query.setParameter("ftype", type);
+//	        return query.getResultList();
+	}
+	
+	@Override
+	public Pokemon findWinner(Integer numCombat) {
+		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.FIND_WINNER, Combat.class);
+		query.setParameter("numCombat", numCombat);
+		//System.out.println(query.getResultList().get(0).getPoke2());
+		DAOPokemonJPA dao = new DAOPokemonJPA(entityManager);
+		Combat c = query.getResultList().get(0);
+		String nomP = (c.getPoke1().equals(c.getLoser()) ? c.getPoke2() : c.getPoke1());
+		return dao.getById(nomP);
 	}
 
 	@Override

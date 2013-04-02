@@ -3,8 +3,14 @@ package fr.univaix.iut.pokebattle;
 import javax.persistence.*;
 
 @Entity
-
- public class Pokemon {
+@NamedQueries({
+        @NamedQuery(name = Pokemon.FIND_ALL, query = "SELECT p FROM Pokemon p"),
+        @NamedQuery(name = Pokemon.FIND_BY_TYPE, query = "SELECT p FROM Pokemon p WHERE p.type1 = :ftype")
+})
+public class Pokemon {
+	
+	 public static final String FIND_BY_TYPE = "findPokemonByType";
+	 public static final String FIND_ALL = "findAllPokemon";
 	 
 	 @Id
 	 @Column(name = "NOM_P")
@@ -27,7 +33,31 @@ import javax.persistence.*;
 	 
 	 @Column(name="LVL")
 	 int lvl;
-   public Pokemon() {
+	 
+	 @Enumerated(EnumType.STRING)
+	    private Type type1;
+
+	    @Enumerated(EnumType.STRING)
+	    private Type type2;
+	    
+	    
+   public Type getType1() {
+			return type1;
+		}
+
+		public void setType1(Type type1) {
+			this.type1 = type1;
+		}
+
+		public Type getType2() {
+			return type2;
+		}
+
+		public void setType2(Type type2) {
+			this.type2 = type2;
+		}
+
+public Pokemon() {
      // TODO Auto-generated constructor stub
    }    
      
@@ -55,7 +85,7 @@ public Pokemon(String nomP, String nomD, String cri, int pvMax,
 public String toString() {
 	return "Pokemon [nomP=" + nomP + ", nomD=" + nomD + ", cri=" + cri
 			+ ", pvMax=" + pvMax + ", pvRestant=" + pvRestant + ", xp=" + xp
-			+ ", lvl=" + lvl + "]";
+			+ ", lvl=" + lvl + ", type1=" + type1 + ", type2=" + type2 + "]";
 }
 
 public String getNomP() {

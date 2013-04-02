@@ -1,11 +1,15 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.Combat;
+import fr.univaix.iut.pokebattle.DAOCombat;
+import fr.univaix.iut.pokebattle.DAOCombatJpa;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -22,16 +26,23 @@ public class JudgeWinCell implements SmartCell{
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
 	        EntityManager em = emf.createEntityManager();
 	
-	        Combat combatCourant = em.find(Combat.class, NomPokeKO);
+	        DAOCombat dao = new DAOCombatJpa(em);
+	        		// passer une string au lieu d'un pokemon
+	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, NomPokeKO));
+	        //combats.get(0).setLoser(NomPokeKO);
+	        /*Combat combatCourant = em.find(Combat.class, NomPokeKO);
 	        
 	        em.getTransaction().begin();
 			
 			em.persist(poke);
-			em.getTransaction().commit();
+			em.getTransaction().commit();*/
+	        Pokemon pokeWin = dao.findWinner(combats.get(0).getNumCombat());
 	        
 	        em.close();
 	        emf.close();
-            return ;
+	        
+	        return pokeWin.getNomP();
+            //return ;
     	}
 		
 		return null;
