@@ -3,21 +3,24 @@ package fr.univaix.iut.pokebattle;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "findByPokeName", query = "SELECT p FROM Pokemon p WHERE p.nomReelPoke = :pname")
+
  public class Pokemon {
 	 
 	 @Id
 	 @Column(name = "NOM_P")
-   String nomP;
+	 String nomP;
 	 
 	 @Column(name = "NOM_D")
-   String nomD;
+	 String nomD;
 	 
 	 @Column(name="CRI")
 	 String cri;
 	 
-	@Column(name = "PVMAX")
+	 @Column(name = "PVMAX")
 	 int pvMax;
 	 
 	 @Column(name="PVRESTANT")
@@ -28,6 +31,10 @@ import javax.persistence.Id;
 	 
 	 @Column(name="LVL")
 	 int lvl;
+	 
+	 @Column(name="NOM_REEL_P")
+	 String nomReelPoke;
+	 
    public Pokemon() {
      // TODO Auto-generated constructor stub
    }    
@@ -107,6 +114,13 @@ public void setLvl(int lvl) {
 	this.lvl = lvl;
 }
  
+public String getNomReelPoke() {
+	return nomReelPoke;
+}
 
+public void setNomReelPoke(String nomReelPoke) {
+	this.nomReelPoke = nomReelPoke;
+}
+ 
    
  }

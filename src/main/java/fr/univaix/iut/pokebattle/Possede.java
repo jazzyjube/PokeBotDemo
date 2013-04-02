@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="findAllAtk", query="SELECT p.attaque FROM Possede p WHERE p.pokemon = :pokemon")
+
 public class Possede {
 
 	@Id

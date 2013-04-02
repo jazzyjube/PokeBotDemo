@@ -7,7 +7,7 @@
 	<class>fr.univaix.iut.pokebattle.Pokemon</class>
 	<class>fr.univaix.iut.pokebattle.Attaque</class>
 	<class>fr.univaix.iut.pokebattle.Possede</class>
-
+	<class>fr.univaix.iut.pokebattle.PeutApprendre</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_pokemon"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
