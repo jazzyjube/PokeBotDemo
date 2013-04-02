@@ -2,10 +2,13 @@ package fr.univaix.iut.pokebattle;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+@IdClass(PossedeID.class)
+
 public class Possede {
 
 	@Id
