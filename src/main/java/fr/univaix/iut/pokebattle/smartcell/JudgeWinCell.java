@@ -27,22 +27,23 @@ public class JudgeWinCell implements SmartCell{
 	        EntityManager em = emf.createEntityManager();
 	
 	        DAOCombat dao = new DAOCombatJpa(em);
-	        		// passer une string au lieu d'un pokemon
-	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, NomPokeKO));
-	        //combats.get(0).setLoser(NomPokeKO);
-	        /*Combat combatCourant = em.find(Combat.class, NomPokeKO);
 	        
-	        em.getTransaction().begin();
-			
-			em.persist(poke);
-			em.getTransaction().commit();*/
-	        Pokemon pokeWin = dao.findWinner(combats.get(0).getNumCombat());
+	        
+	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, NomPokeKO));
+	        Combat combatCourant = combats.get(combats.size() - 1);
+	        
+	        combatCourant.setLoser(NomPokeKO);
+	        
+	        Pokemon pokeWin = dao.findWinner(combatCourant.getNumCombat());
+	        combatCourant.setWinner(pokeWin.getNomP());
+	        
+			dao.update(combatCourant);
+
 	        
 	        em.close();
 	        emf.close();
 	        
-	        return pokeWin.getNomP();
-            //return ;
+	        return "@" + pokeWin.getNomP() + " #Win";
     	}
 		
 		return null;

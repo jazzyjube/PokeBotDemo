@@ -40,8 +40,19 @@ public class Pokemon {
 	    @Enumerated(EnumType.STRING)
 	    private Type type2;
 	    
+	    @Column(name="LOCALISATION")
+		 String localisation;
 	    
-   public Type getType1() {
+
+public String getLocalisation() {
+			return localisation;
+		}
+
+		public void setLocalisation(String localisation) {
+			this.localisation = localisation;
+		}
+
+public Type getType1() {
 			return type1;
 		}
 
@@ -70,7 +81,7 @@ public void setCri(String cri) {
 }
 
 public Pokemon(String nomP, String nomD, String cri, int pvMax,
-			int pvRestant, int xp, int lvl) {
+			int pvRestant, int xp, int lvl, Type type1, Type type2, String localisation) {
 		super();
 		this.nomP = nomP;
 		this.nomD = nomD;
@@ -79,13 +90,17 @@ public Pokemon(String nomP, String nomD, String cri, int pvMax,
 		this.pvRestant = pvRestant;
 		this.xp = xp;
 		this.lvl = lvl;
+		this.type1 = type1;
+		this.type2 = type2;
+		this.localisation = localisation;
 	}
 
 @Override
 public String toString() {
 	return "Pokemon [nomP=" + nomP + ", nomD=" + nomD + ", cri=" + cri
 			+ ", pvMax=" + pvMax + ", pvRestant=" + pvRestant + ", xp=" + xp
-			+ ", lvl=" + lvl + ", type1=" + type1 + ", type2=" + type2 + "]";
+			+ ", lvl=" + lvl + ", type1=" + type1 + ", type2=" + type2
+			+ ", localisation=" + localisation + "]";
 }
 
 public String getNomP() {

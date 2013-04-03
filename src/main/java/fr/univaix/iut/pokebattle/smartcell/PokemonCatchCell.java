@@ -40,7 +40,7 @@ public class PokemonCatchCell implements SmartCell {
     				
     				em.close();
     	            emf.close();
-    	            TwitterFactory.getSingleton().updateProfile(null, null, null, 
+    	            TwitterFactory.getSingleton().updateProfile(null, null, poke.getLocalisation(), 
     	            		"#pokebattle - #pokemon - Owner : @" + Name + " - Level: " + poke.getLvl());
     				return "@" + Name + " @" + Name + " is my new owner !!!";
     			}
