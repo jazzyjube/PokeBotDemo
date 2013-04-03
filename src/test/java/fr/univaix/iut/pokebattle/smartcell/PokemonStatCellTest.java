@@ -25,7 +25,7 @@ public class PokemonStatCellTest {
     @Test
     public void testStatPv() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche #stat #pv ?");
-        assertEquals("@maitre_peter #PV=100/100", cell.ask(tweet));
+        assertEquals("@maitre_peter #PV=0/100", cell.ask(tweet));
     }
 
 }

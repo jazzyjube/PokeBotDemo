@@ -13,7 +13,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonCatchCellTest {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattlePUTest");
     EntityManager em = emf.createEntityManager();
 	
     PokemonCatchCell cell = new PokemonCatchCell();
