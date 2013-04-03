@@ -5,12 +5,14 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 @Entity
 @IdClass(PossedeID.class)
-
+@NamedQuery(name = Possede.FIND_ALL_BY_POKE, query="SELECT p.attaque FROM Possede p WHERE p.pokemon = :pokemon")
 public class Possede {
-
+	
+	public static final String FIND_ALL_BY_POKE = "findAllAtk";
 	@Id
 	@ManyToOne
 	@JoinColumn(name="NOM_P")

@@ -5,12 +5,14 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name = Pokemon.FIND_ALL, query = "SELECT p FROM Pokemon p"),
-        @NamedQuery(name = Pokemon.FIND_BY_TYPE, query = "SELECT p FROM Pokemon p WHERE p.type1 = :ftype")
+        @NamedQuery(name = Pokemon.FIND_BY_TYPE, query = "SELECT p FROM Pokemon p WHERE p.type1 = :ftype"),
+	@NamedQuery(name = Pokemon.FIND_BY_NAME, query = "SELECT p FROM Pokemon p WHERE p.nomReelPoke = :pname")
 })
 public class Pokemon {
 	
 	 public static final String FIND_BY_TYPE = "findPokemonByType";
 	 public static final String FIND_ALL = "findAllPokemon";
+	 public static final String FIND_BY_NAME = "findByPokeName";
 	 
 	 @Id
 	 @Column(name = "NOM_P")
@@ -43,6 +45,16 @@ public class Pokemon {
 	    @Column(name="LOCALISATION")
 		 String localisation;
 	    
+	 @Column(name="NOM_REEL_P")
+	 String nomReelPoke;
+
+public String getNomReelPoke() {
+	return nomReelPoke;
+}
+
+public void setNomReelPoke(String nomReelPoke) {
+	this.nomReelPoke = nomReelPoke;
+}
 
 public String getLocalisation() {
 			return localisation;

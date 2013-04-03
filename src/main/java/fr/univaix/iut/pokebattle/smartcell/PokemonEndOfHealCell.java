@@ -12,8 +12,6 @@ public class PokemonEndOfHealCell implements SmartCell {
     public String ask(Tweet question) {
     	
     	String Tweet = question.getText();
-    	String str[] = Tweet.split(" ");
-    	
     	
     	if (Tweet.contains("DringDring") && Tweet.contains("Jazz"))
     	{	
