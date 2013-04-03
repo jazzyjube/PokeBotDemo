@@ -2,6 +2,8 @@ package fr.univaix.iut.pokebattle.twitter;
 
 import org.junit.Test;
 
+import fr.univaix.iut.pokebattle.tuse.Credentials;
+
 import java.io.InputStream;
 
 import static org.fest.assertions.Assertions.assertThat;
