@@ -12,7 +12,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonKOCellTest {
 
 	PokemonKOCell cell = new PokemonKOCell();
-	@Ignore
+	
     @Test
     public void testKOAnswer() throws TwitterException {
     	Tweet tweet = new Tweet("juge_otte", "@sala_meche -10pv /cc @maitre_peter by @topdresseur_red");

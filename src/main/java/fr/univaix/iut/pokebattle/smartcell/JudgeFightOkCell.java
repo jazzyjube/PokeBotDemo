@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,41 +13,48 @@ import fr.univaix.iut.pokebattle.DAOCombat;
 import fr.univaix.iut.pokebattle.DAOCombatJpa;
 import fr.univaix.iut.pokebattle.DAOPokemon;
 import fr.univaix.iut.pokebattle.DAOPokemonJPA;
+import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class JudgeStartFightCell implements SmartCell{
+public class JudgeFightOkCell implements SmartCell{
 
-	
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
 		String Name = question.getScreenName();
     	String Tweet = question.getText();
-    	
-    	if(Tweet.contains("#fight") && !(Tweet.contains("#ok")))
+
+		
+    	if(Tweet.contains("#fight #ok"))
     	{
+
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
 	        EntityManager em = emf.createEntityManager();
 	        
-    		String NomPoke1 = question.getSubstring(3);
-    		
+    		String NomPoke2 = question.getSubstring(4);
+
     		DAOCombat dao = new DAOCombatJpa(em);
     		DAOPokemon daoP = new DAOPokemonJPA(em);
     		
-    		if (daoP.getById(NomPoke1).getNomD().equals(Name))
-    		{
+    		//if (daoP.getById(NomPoke2).getNomD().equals(Name))
+    		//{
+
     			List<Combat> combats = dao.findAll();
-    			Combat lastComb = combats.get(combats.size() - 1);
+    			Combat lastCombat = combats.get(combats.size() - 1);
     			
-	    		Combat comb = new Combat((lastComb.getNumCombat() + 1), NomPoke1, null, null, null);
-	    		dao.insert(comb);
+    			lastCombat.setPoke2(NomPoke2);
+    			dao.update(lastCombat);
+    			
+    			Pokemon poke1 = daoP.getById(lastCombat.getPoke1());
+	    		String dress1 = poke1.getNomD();
 	    		
-	    		return "@" + Name + " @" + NomPoke1 + " registered";
-    		}
-            
-    	}
-    	
-		return null;
+	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + Name + " with @" + NomPoke2 + " fight now";
+	    	}
+	            
+	    //}
+	    	
+			return null;
 	}
 
 }
+
