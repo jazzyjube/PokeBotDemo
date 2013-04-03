@@ -21,28 +21,28 @@ public class PokemonAttakCell implements SmartCell {
     	String Tweet = question.getText();
     	String Name = question.getScreenName();
     	
-    	
+    	String str[] = Tweet.split(" ");
 
-    	if (Tweet.contains("attack"))
+    	String attack = str[2];
+    	String pokemon = str[0].substring(1);	
+    	String owner;
+    	
+    	
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
+        EntityManager em = emf.createEntityManager();
+
+        Pokemon poke = em.find(Pokemon.class, pokemon);
+        Attaque atkBD = em.find(Attaque.class, attack.substring(1));
+        owner = poke.getNomD();
+        
+
+    	if (Tweet.contains("attack") && owner.equals(Name))
     	{
     		
-    		
-	   		String str[] = Tweet.split(" ");
-	    	String adversaire = str[3];
-	    	String DressAdversaire = str[5];
-	    	String Judge = str[6];
-	    	String attack = str[2];
-	    	String pokemon = str[0].substring(1);	
-	    	String owner;
-	    	
-	    	
-	    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-	        EntityManager em = emf.createEntityManager();
-	
-	        Pokemon poke = em.find(Pokemon.class, pokemon);
-	        Attaque atkBD = em.find(Attaque.class, attack.substring(1));
-	        owner = poke.getNomD();
-	        
+        	String adversaire = str[3];
+        	String DressAdversaire = str[5];
+        	String Judge = str[6];
+	   		
 	    	TypedQuery<Attaque> poss = em.createNamedQuery(Possede.FIND_ALL_BY_POKE, Attaque.class);
 	        poss.setParameter ("pokemon", poke);
 	        List<Attaque> results = poss.getResultList();
@@ -53,7 +53,7 @@ public class PokemonAttakCell implements SmartCell {
 	        }
 	        
     		if (Name.contains(owner)) { 
-    			return adversaire + " #attack " + attack + "! /cc " + DressAdversaire + " @" + Name + " " + Judge; 
+    			return adversaire + " #attack " + attack + " /cc " + DressAdversaire + " @" + Name + " " + Judge; 
     		}
     		
     		return "@" + Name + " @" + owner + " is my owner !";  

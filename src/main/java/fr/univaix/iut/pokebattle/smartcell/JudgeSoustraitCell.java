@@ -15,8 +15,9 @@ public class JudgeSoustraitCell implements SmartCell{
 		
     	//String Name = question.getScreenName();
     	String DressAdv = question.getSubstring(4);
+    	String Tweet = question.getText();
     	
-    	if(!(DressAdv.equals("/cc")))
+    	if(!(DressAdv.equals("/cc")) && Tweet.contains("#attack"))
     	{
     		String NomPokeAdv = question.getSubstring(0);
     		String Dress = question.getSubstring(5);
