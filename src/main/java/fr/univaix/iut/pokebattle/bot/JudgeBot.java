@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.bot;
 
 import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.smartcell.JudgeFightOkCell;
 import fr.univaix.iut.pokebattle.smartcell.JudgeSoustraitCell;
 import fr.univaix.iut.pokebattle.smartcell.JudgeStartFightCell;
 import fr.univaix.iut.pokebattle.smartcell.JudgeWinCell;
@@ -16,7 +17,8 @@ public class JudgeBot implements Bot {
 	final SmartCell[] smartCells = new SmartCell[]{
             new JudgeSoustraitCell(),
             new JudgeWinCell(),
-            new JudgeStartFightCell()
+            new JudgeStartFightCell(),
+            new JudgeFightOkCell()
 
     };
 
