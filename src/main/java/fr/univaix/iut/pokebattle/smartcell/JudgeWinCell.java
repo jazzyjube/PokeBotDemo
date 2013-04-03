@@ -20,6 +20,8 @@ public class JudgeWinCell implements SmartCell{
 		
 		String NomPokeKO = question.getScreenName();
     	String Tweet = question.getText();
+    	final int EXP_BASE = 200;
+    	
     	
     	if(Tweet.contains("#KO"))
     	{
@@ -39,11 +41,27 @@ public class JudgeWinCell implements SmartCell{
 	        
 			dao.update(combatCourant);
 
+	        Pokemon poke = em.find(Pokemon.class, pokeWin.getNomP());
+	        
+	        int level = poke.getLvl();
+	        
+	        int Exp = EXP_BASE * level / 7;
+	        
+	        
+	        Exp = poke.getXp() + Exp;
+	        
+	        em.getTransaction().begin();
+	        
+	        poke.setXp(Exp);
+	        
+	        em.persist(poke);
+            
+            em.getTransaction().commit();
 	        
 	        em.close();
 	        emf.close();
-	        
-	        return "@" + pokeWin.getNomP() + " #Win";
+
+	        return "@" + pokeWin.getNomP() + " #Win +"+Exp+"xp";
     	}
 		
 		return null;
