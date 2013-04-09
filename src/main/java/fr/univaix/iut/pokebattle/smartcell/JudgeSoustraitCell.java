@@ -13,7 +13,6 @@ public class JudgeSoustraitCell implements SmartCell{
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
-    	//String Name = question.getScreenName();
     	String DressAdv = question.getSubstring(4);
     	String Tweet = question.getText();
     	

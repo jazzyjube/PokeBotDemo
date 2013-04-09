@@ -36,8 +36,6 @@ public class JudgeFightOkCell implements SmartCell{
     		DAOCombat dao = new DAOCombatJpa(em);
     		DAOPokemon daoP = new DAOPokemonJPA(em);
     		
-    		//if (daoP.getById(NomPoke2).getNomD().equals(Name))
-    		//{
 
     			List<Combat> combats = dao.findAll();
     			Combat lastCombat = combats.get(combats.size() - 1);

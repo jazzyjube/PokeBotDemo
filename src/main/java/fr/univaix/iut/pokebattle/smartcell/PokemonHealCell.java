@@ -27,7 +27,6 @@ public class PokemonHealCell implements SmartCell {
     	
     	if (Tweet.contains("PV=") && healPoke.contains("heal_joelle"))
     	{
-    		// if (TEST SI MAX VIE) => break
     		
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
@@ -51,10 +50,11 @@ public class PokemonHealCell implements SmartCell {
         	int j = 10;
         	int i = 2;
         	int k = 1;
+        	final int divdix = 10;
         	
         	for (;;)
         	{
-        		if (pvRest < pvMax/10)
+        		if (pvRest < pvMax/divdix)
         		{
         			minutes = j;
         			break;
@@ -62,7 +62,7 @@ public class PokemonHealCell implements SmartCell {
         		
         		--j;
         		
-        		if (pvRest >= (pvMax/10) * k  &&  pvRest < ( (pvMax/10) * i)){
+        		if (pvRest >= (pvMax/divdix) * k  &&  pvRest < ( (pvMax/divdix) * i)){
         			minutes = j;
         			break;
         		}
