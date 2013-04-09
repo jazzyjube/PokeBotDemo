@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -21,9 +22,8 @@ public class PokemonEndOfHealCell implements SmartCell {
     			String name = question.getSubstring(INDEXNAME); 
 
         		
-        		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-                EntityManager em = emf.createEntityManager();
-        	
+    			EntityManager em = DAOFactoryJPA.getEntityManager();
+    			
                 Pokemon poke = em.find(Pokemon.class, name);
                 String dresseur = poke.getNomD();
                 
@@ -36,7 +36,7 @@ public class PokemonEndOfHealCell implements SmartCell {
                 
                 em.getTransaction().commit();
                 em.close();
-                emf.close();
+
                 
                 return "@" + dresseur + " @"+ name +" is restored to full health" + " #PokeBattle";
     	}

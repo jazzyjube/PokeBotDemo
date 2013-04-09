@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -24,13 +25,12 @@ public class JudgeSoustraitCell implements SmartCell{
     		String nomPokeAdv = question.getSubstring(0);
     		String dress = question.getSubstring(INDEXDRESS);
     		
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-            EntityManager em = emf.createEntityManager();
+    		EntityManager em = DAOFactoryJPA.getEntityManager();
+           
 
             Pokemon poke = em.find(Pokemon.class, nomPokeAdv);
             poke.setPvRestant(poke.getPvRestant() - PVPERDUS);
             em.close();
-            emf.close();
             
             return "@" + nomPokeAdv + " -10pv /cc @" + dressAdv + " by @" + dress + " #PokeBattle";
     	}

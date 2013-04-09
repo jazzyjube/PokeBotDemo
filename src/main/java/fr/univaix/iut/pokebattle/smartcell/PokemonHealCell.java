@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -28,9 +29,7 @@ public class PokemonHealCell implements SmartCell {
     	if (tweet.contains("PV=") && healPoke.contains("heal_joelle"))
     	{
     		
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-            EntityManager em = emf.createEntityManager();
-    		
+    		EntityManager em = DAOFactoryJPA.getEntityManager();
             Pokemon poke = em.find(Pokemon.class, name);
             
             int pvRest = poke.getPvRestant();
@@ -40,7 +39,6 @@ public class PokemonHealCell implements SmartCell {
             if (pvRest == pvMax){
             	
             	em.close();
-            	emf.close();
             	
             	return "@" + dresseur + " @" + name + " is already full of health !" + " #PokeBattle";
             }
@@ -73,8 +71,7 @@ public class PokemonHealCell implements SmartCell {
  		          
             
             em.close();
-    		emf.close();
-            
+
     		return "@" + name + " come in the #pokecenter / @PokeTimer #WakeMeUp " 
     				+ minutes + " Min #Jazz #"+ name + "# PokeBattle";
 

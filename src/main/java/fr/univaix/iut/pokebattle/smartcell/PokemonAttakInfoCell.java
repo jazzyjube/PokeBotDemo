@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Possede;
 import fr.univaix.iut.pokebattle.PossedeID;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
@@ -24,14 +25,13 @@ public class PokemonAttakInfoCell implements SmartCell {
     		String nomAttaque = str[INDEXATTACK].substring(1);
     		
     		
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-            EntityManager em = emf.createEntityManager();
+    		EntityManager em = DAOFactoryJPA.getEntityManager();
      
             PossedeID id = new PossedeID(nompoke, nomAttaque);
             Possede poke = em.find(Possede.class, id);
 
             em.close();
-            emf.close();
+       
             
     		return "@" + name + " #" + nomAttaque + " #PPrestant="+ poke.getPpRestant() + " #PokeBattle";
     	}

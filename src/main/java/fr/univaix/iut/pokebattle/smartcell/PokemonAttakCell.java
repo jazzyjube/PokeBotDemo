@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.Attaque;
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.Possede;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
@@ -33,8 +34,7 @@ public class PokemonAttakCell implements SmartCell {
     	String owner;
     	
     	
-    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-        EntityManager em = emf.createEntityManager();
+    	EntityManager em = DAOFactoryJPA.getEntityManager();
 
         Pokemon poke = em.find(Pokemon.class, pokemon);
         Attaque atkBD = em.find(Attaque.class, attack.substring(1));
@@ -54,14 +54,16 @@ public class PokemonAttakCell implements SmartCell {
 	        
 	        if(!results.contains(atkBD))
 	        {
+	        	em.close();
 	        	return adversaire +  " o_O ? /cc " + dressAdversaire + " @" + name + " #PokeBattle";
 	        }
 	        
     		if (name.contains(owner)) { 
+    			em.close();
     			return adversaire + " #attack " + attack + " /cc " + dressAdversaire 
     				   + " @" + name + " " + judge + " #PokeBattle"; 
     		}
-    		
+    		em.close();
     		return "@" + name + " @" + owner + " is my owner !" + " #PokeBattle";  
     	}
     	

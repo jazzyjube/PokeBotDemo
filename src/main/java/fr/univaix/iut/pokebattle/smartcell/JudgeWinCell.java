@@ -10,6 +10,7 @@ import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.Combat;
 import fr.univaix.iut.pokebattle.DAOCombat;
 import fr.univaix.iut.pokebattle.DAOCombatJpa;
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -27,11 +28,10 @@ public class JudgeWinCell implements SmartCell{
     	
     	if(tweet.contains("#KO"))
     	{
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-	        EntityManager em = emf.createEntityManager();
 	
-	        DAOCombat dao = new DAOCombatJpa(em);
+	        DAOCombat dao = DAOFactoryJPA.createDAOCombat();
 	        
+	        EntityManager em = DAOFactoryJPA.getEntityManager();
 	        
 	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, nomPokeKO));
 	        Combat combatCourant = combats.get(combats.size() - 1);
@@ -47,7 +47,11 @@ public class JudgeWinCell implements SmartCell{
 	        
 	        int level = poke.getLvl();
 	        
+<<<<<<< HEAD
 	        int exp = expbase * level / EXPDIV;
+=======
+	        int exp = expbase * level / 7;
+>>>>>>> master
 	        
 	        
 	        exp = poke.getXp() + exp;
@@ -61,7 +65,6 @@ public class JudgeWinCell implements SmartCell{
             em.getTransaction().commit();
 	        
 	        em.close();
-	        emf.close();
 
 	        return "@" + pokeWin.getNomP() + " #Win +"+exp+"xp" + " #PokeBattle";
     	}
