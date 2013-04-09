@@ -14,7 +14,9 @@ import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeWinCell implements SmartCell{
-
+	
+	static final int EXPDIV = 7;
+	
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
@@ -45,7 +47,7 @@ public class JudgeWinCell implements SmartCell{
 	        
 	        int level = poke.getLvl();
 	        
-	        int exp = exp_base * level / 7;
+	        int exp = exp_base * level / EXPDIV;
 	        
 	        
 	        exp = poke.getXp() + exp;

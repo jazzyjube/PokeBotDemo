@@ -16,7 +16,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeStartFightCell implements SmartCell{
 
-	
+	static final int INDEXNOMPOKE = 3;
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
@@ -28,7 +28,7 @@ public class JudgeStartFightCell implements SmartCell{
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
 	        EntityManager em = emf.createEntityManager();
 	        
-    		String nomPoke1 = question.getSubstring(3);
+    		String nomPoke1 = question.getSubstring(INDEXNOMPOKE);
     		
     		DAOCombat dao = new DAOCombatJpa(em);
     		DAOPokemon daoP = new DAOPokemonJPA(em);
