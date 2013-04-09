@@ -6,7 +6,6 @@ import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 

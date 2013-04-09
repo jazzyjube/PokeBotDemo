@@ -19,9 +19,13 @@ public class DataObjectPokemon {
 	private String couleur;
 	private int forme;
 
-    DataObjectAttack[] attaques;
+    private DataObjectAttack[] attaques;
 
-    public DataObjectPokemon(){
+    public void setAttaques(DataObjectAttack[] attaques) {
+		this.attaques = attaques;
+	}
+
+	public DataObjectPokemon(){
     }
 
     public DataObjectPokemon(String nom, String espece, float taille, float poids, 

@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fr.univaix.iut.pokebattle.twitter.Tweet;
 import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonOwnerCellTest {
 	PokemonOwnerCell cell = new PokemonOwnerCell();

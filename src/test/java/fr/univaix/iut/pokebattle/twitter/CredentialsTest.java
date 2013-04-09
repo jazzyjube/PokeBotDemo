@@ -1,12 +1,12 @@
 package fr.univaix.iut.pokebattle.twitter;
 
-import org.junit.Test;
-
-import fr.univaix.iut.pokebattle.tuse.Credentials;
+import static org.fest.assertions.Assertions.assertThat;
 
 import java.io.InputStream;
 
-import static org.fest.assertions.Assertions.assertThat;
+import org.junit.Test;
+
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 
 public class CredentialsTest {
     @Test
