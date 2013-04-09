@@ -14,17 +14,17 @@ public class PokemonCatchCell implements SmartCell {
     public String ask(Tweet question) throws TwitterException {
     	
     	
-    	String Tweet = question.getText();
-    	String Name = question.getScreenName();
-    	String NomPoke = question.getSubstring(0);
+    	String tweet = question.getText();
+    	String name = question.getScreenName();
+    	String nomPoke = question.getSubstring(0);
     	
-    	if (Tweet.contains("Pokeball"))
+    	if (tweet.contains("Pokeball"))
     	{
     		
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
             
-            Pokemon poke = em.find(Pokemon.class, NomPoke);
+            Pokemon poke = em.find(Pokemon.class, nomPoke);
             
             
             
@@ -32,22 +32,22 @@ public class PokemonCatchCell implements SmartCell {
     			if (poke.getNomD() == null)
     			{
     				em.getTransaction().begin();
-    				poke.setNomD(Name);
+    				poke.setNomD(name);
     				em.persist(poke);
     				em.getTransaction().commit();
     				
     				em.close();
     	            emf.close();
     	            TwitterFactory.getSingleton().updateProfile(null, null, poke.getLocalisation(), 
-    	            		"#pokebattle - #pokemon - Owner : @" + Name + " - Level: " + poke.getLvl());
-    				return "@" + Name + " @" + Name + " is my new owner !!!" + " #PokeBattle";
+    	            		"#pokebattle - #pokemon - Owner : @" + name + " - Level: " + poke.getLvl());
+    				return "@" + name + " @" + name + " is my new owner !!!" + " #PokeBattle";
     			}
     				
     			else
     			{
     				em.close();
     	            emf.close();
-    	            return "@" + Name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
+    	            return "@" + name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
     			}
     				
     		
