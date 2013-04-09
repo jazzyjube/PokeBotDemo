@@ -16,25 +16,25 @@ public class Pokemon {
 	 
 	 @Id
 	 @Column(name = "NOM_P")
-   String nomP;
+	 private String nomP;
 	 
 	 @Column(name = "NOM_D")
-   String nomD;
+	 private String nomD;
 	 
 	 @Column(name="CRI")
-	 String cri;
+	 private String cri;
 	 
 	@Column(name = "PVMAX")
-	 int pvMax;
+	 private int pvMax;
 	 
 	 @Column(name="PVRESTANT")
-	 int pvRestant;
+	 private int pvRestant;
 	 
 	 @Column(name="XP")
-	 int xp;
+	 private int xp;
 	 
 	 @Column(name="LVL")
-	 int lvl;
+	 private int lvl;
 	 
 	 @Enumerated(EnumType.STRING)
 	    private Type type1;
@@ -43,10 +43,10 @@ public class Pokemon {
 	    private Type type2;
 	    
 	    @Column(name="LOCALISATION")
-		 String localisation;
+	    private String localisation;
 	    
 	 @Column(name="NOM_REEL_P")
-	 String nomReelPoke;
+	 private String nomReelPoke;
 
 public String getNomReelPoke() {
 	return nomReelPoke;

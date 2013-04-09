@@ -24,7 +24,7 @@ public class Possede {
 	private Attaque attaque;
 	
 	@Column(name="PPRESTANT")
-	int ppRestant;
+	private int ppRestant;
 
 	public Possede(){}
 	public Possede(Pokemon pokemon, Attaque attaque, int ppRestant) {
