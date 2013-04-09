@@ -8,7 +8,7 @@ public class PeutApprendre {
 	@Id
 	@ManyToOne
 	@JoinColumn(name="NOM_P")
-	private Pokemon Poke;
+	private Pokemon poke;
 	
 	@Id
 	@ManyToOne
@@ -21,17 +21,17 @@ public class PeutApprendre {
 	public PeutApprendre(){}
 	
 	public PeutApprendre(Pokemon poke, Attaque attaque, int level) {
-		this.Poke = poke;
+		this.poke = poke;
 		this.attaque = attaque;
 		this.level = level;
 	}
 	
 	public Pokemon getPoke() {
-		return Poke;
+		return poke;
 	}
 
 	public void setPoke(Pokemon poke) {
-		this.Poke = poke;
+		this.poke = poke;
 	}
 
 	public Attaque getAttaque() {
@@ -52,7 +52,7 @@ public class PeutApprendre {
 
 	@Override
 	public String toString() {
-		return "PeutApprendre [Poke=" + Poke + ", attaque=" + attaque
+		return "PeutApprendre [Poke=" + poke + ", attaque=" + attaque
 				+ ", level=" + level + "]";
 	}
 	
