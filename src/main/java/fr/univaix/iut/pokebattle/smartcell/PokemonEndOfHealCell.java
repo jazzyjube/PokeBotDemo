@@ -36,7 +36,7 @@ public class PokemonEndOfHealCell implements SmartCell {
                 em.close();
                 emf.close();
                 
-                return "@" + dresseur + " @"+ name +" is restored to full health";
+                return "@" + dresseur + " @"+ name +" is restored to full health" + " #PokeBattle";
     	}
  	
     	return null ;

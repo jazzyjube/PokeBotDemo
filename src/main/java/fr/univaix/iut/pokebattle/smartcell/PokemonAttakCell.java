@@ -49,14 +49,15 @@ public class PokemonAttakCell implements SmartCell {
 	        
 	        if(!results.contains(atkBD))
 	        {
-	        	return adversaire +  " o_O ? /cc " + DressAdversaire + " @" + Name;
+	        	return adversaire +  " o_O ? /cc " + DressAdversaire + " @" + Name + " #PokeBattle";
 	        }
 	        
     		if (Name.contains(owner)) { 
-    			return adversaire + " #attack " + attack + " /cc " + DressAdversaire + " @" + Name + " " + Judge; 
+    			return adversaire + " #attack " + attack + " /cc " + DressAdversaire 
+    				   + " @" + Name + " " + Judge + " #PokeBattle"; 
     		}
     		
-    		return "@" + Name + " @" + owner + " is my owner !";  
+    		return "@" + Name + " @" + owner + " is my owner !" + " #PokeBattle";  
     	}
     	
     	return null ;

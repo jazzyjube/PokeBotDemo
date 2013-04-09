@@ -14,7 +14,7 @@ public class JudgeFightOkCellTest {
 	 @Test
 	    public void testOkFight() throws TwitterException {
 	    	Tweet tweet = new Tweet("topdresseur_red", "@maitre_peter #fight #ok with @kai_minus /cc @juge_otte");
-	        assertEquals("@maitre_peter with @dialga_shiny vs @topdresseur_red with @kai_minus fight now", cell.ask(tweet));
+	        assertEquals("@maitre_peter with @dialga_shiny vs @topdresseur_red with @kai_minus fight now #PokeBattle", cell.ask(tweet));
 	    }
 
 }

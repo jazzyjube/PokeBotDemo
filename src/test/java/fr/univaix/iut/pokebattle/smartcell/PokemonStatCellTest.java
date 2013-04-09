@@ -14,14 +14,14 @@ public class PokemonStatCellTest {
     @Test
     public void testStatLevel() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche #stat #level ?");
-        assertEquals("@maitre_peter #level=1", cell.ask(tweet));
+        assertEquals("@maitre_peter #level=1 #PokeBattle", cell.ask(tweet));
     }
 
     @Ignore
     @Test
     public void testStatXp() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche #stat #xp ?");
-        assertEquals("@maitre_peter #XP=0", cell.ask(tweet));
+        assertEquals("@maitre_peter #XP=0 #PokeBattle", cell.ask(tweet));
     }
     
     @Ignore

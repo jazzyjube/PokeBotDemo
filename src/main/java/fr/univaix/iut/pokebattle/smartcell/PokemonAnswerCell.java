@@ -27,7 +27,7 @@ public class PokemonAnswerCell implements SmartCell{
             
             em.close();
             emf.close();
-    		return "@" + Name + " " + poke.getCri();
+    		return "@" + Name + " " + poke.getCri() + " #PokeBattle";
     	}
     	return null ;
     	}

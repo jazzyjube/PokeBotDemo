@@ -22,7 +22,7 @@ public class PokemonHealCell implements SmartCell {
     		
     		String nomPoke = question.getSubstring(2);
             
-            return "@" + nomPoke + " #stat #PV ?"; 
+            return "@" + nomPoke + " #stat #PV ?" + " #PokeBattle"; 
     	}
     	
     	if (Tweet.contains("PV=") && healPoke.contains("heal_joelle"))
@@ -43,7 +43,7 @@ public class PokemonHealCell implements SmartCell {
             	em.close();
             	emf.close();
             	
-            	return "@" + dresseur + " @" + name + " is already full of health !" ;
+            	return "@" + dresseur + " @" + name + " is already full of health !" + " #PokeBattle";
             }
             
             
@@ -75,7 +75,8 @@ public class PokemonHealCell implements SmartCell {
             em.close();
     		emf.close();
             
-    		return "@" + name + " come in the #pokecenter / @PokeTimer #WakeMeUp " + minutes + " Min #Jazz #"+ name;
+    		return "@" + name + " come in the #pokecenter / @PokeTimer #WakeMeUp " 
+    				+ minutes + " Min #Jazz #"+ name + "# PokeBattle";
 
     	}
  	

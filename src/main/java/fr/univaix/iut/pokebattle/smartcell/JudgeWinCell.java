@@ -61,7 +61,7 @@ public class JudgeWinCell implements SmartCell{
 	        em.close();
 	        emf.close();
 
-	        return "@" + pokeWin.getNomP() + " #Win +"+Exp+"xp";
+	        return "@" + pokeWin.getNomP() + " #Win +"+Exp+"xp" + " #PokeBattle";
     	}
 		
 		return null;

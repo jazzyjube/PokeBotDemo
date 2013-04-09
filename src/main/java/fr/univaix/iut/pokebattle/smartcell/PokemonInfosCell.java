@@ -28,14 +28,14 @@ public class PokemonInfosCell implements SmartCell {
             if(Tweet.contains("level")){
             	
             	int level = poke.getLvl();
-            	return "@"+ name + " #level=" + level;
+            	return "@"+ name + " #level=" + level + " #PokeBattle";
             	
             }
             
             if(Tweet.contains("xp")){
             	
             	int XP = poke.getXp();
-            	return "@"+ name + " #XP=" + XP;
+            	return "@"+ name + " #XP=" + XP + " #PokeBattle";
             	
             }
             
@@ -43,7 +43,7 @@ public class PokemonInfosCell implements SmartCell {
             	
             	int PVrestant = poke.getPvRestant();
             	int PVmax = poke.getPvMax();
-            	return "@"+ name + " #PV=" + PVrestant + "/" +PVmax;
+            	return "@"+ name + " #PV=" + PVrestant + "/" +PVmax + " #PokeBattle";
             	
             }
 

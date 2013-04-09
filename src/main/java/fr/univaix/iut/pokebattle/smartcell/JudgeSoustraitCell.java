@@ -30,7 +30,7 @@ public class JudgeSoustraitCell implements SmartCell{
             em.close();
             emf.close();
             
-            return "@" + NomPokeAdv + " -10pv /cc @" + DressAdv + " by @" + Dress;
+            return "@" + NomPokeAdv + " -10pv /cc @" + DressAdv + " by @" + Dress + " #PokeBattle";
     	}
 		
 		return null;
