@@ -31,9 +31,9 @@ public class PokemonKOCell implements SmartCell{
 	        emf.close();
 		
 	        if (poke.getPvRestant() <= 0)
-	        	
+	        {	
 	        	return "#KO /cc [J] @" + juge + " by @" + dressAdv + " to @" + dress + " #PokeBattle";
-	         
+	        }
     	}
 		return null;
 	}

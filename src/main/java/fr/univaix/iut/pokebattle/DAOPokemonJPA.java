@@ -1,9 +1,10 @@
 package fr.univaix.iut.pokebattle;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import java.util.List;
 
 public class DAOPokemonJPA implements DAOPokemon {
 

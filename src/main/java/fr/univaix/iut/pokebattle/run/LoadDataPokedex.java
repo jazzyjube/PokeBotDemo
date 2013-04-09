@@ -1,17 +1,23 @@
 package fr.univaix.iut.pokebattle.run;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 import com.google.gson.Gson;
+
 import fr.univaix.iut.pokebattle.Attaque;
 import fr.univaix.iut.pokebattle.DataObjectAttack;
 import fr.univaix.iut.pokebattle.DataObjectPokemon;
 import fr.univaix.iut.pokebattle.PeutApprendre;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.Possede;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.*;
-import javax.persistence.*;
 
 // Cette classe est censée être lancée qu'une seule fois pour charger les infos de pokedex.json
 
