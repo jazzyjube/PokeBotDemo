@@ -48,7 +48,9 @@ public class PossedeID {
 		PossedeID other = (PossedeID) obj;
 		if (attaque == null) {
 			if (other.attaque != null)
+			{
 				return false;
+			}
 		} 
 		else if (!attaque.equals(other.attaque))
 		{
@@ -56,7 +58,9 @@ public class PossedeID {
 		}
 		if (pokemon == null) {
 			if (other.pokemon != null)
+			{
 				return false;
+			}
 		} 
 		else if (!pokemon.equals(other.pokemon))
 		{
