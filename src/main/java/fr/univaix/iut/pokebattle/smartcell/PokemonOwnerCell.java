@@ -11,15 +11,12 @@ public class PokemonOwnerCell implements SmartCell {
 	
     public String ask(Tweet question) {
     	
-    	String Tweet = question.getText();
-    	String Name = question.getScreenName();
+    	String tweet = question.getText();
+    	String name = question.getScreenName();    	
     	
-    	
-    	
-    	
-    	if (Tweet.contains("Owner"))
+    	if (tweet.contains("Owner"))
     	{
-    		String str[] = Tweet.split(" ");
+    		String str[] = tweet.split(" ");
     		String nompoke = str[0].substring(1);
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
@@ -30,9 +27,9 @@ public class PokemonOwnerCell implements SmartCell {
             emf.close();
             if (poke.getNomD() == null)
             {
-            	return "@" + Name + " No owner"  + " #PokeBattle";
+            	return "@" + name + " No owner"  + " #PokeBattle";
             }
-    		return "@" + Name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
+    		return "@" + name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
     	}
     	return null ;
     	}

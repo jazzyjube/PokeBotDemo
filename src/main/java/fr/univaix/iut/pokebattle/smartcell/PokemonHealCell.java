@@ -11,13 +11,13 @@ public class PokemonHealCell implements SmartCell {
 	
     public String ask(Tweet question) {
     	
-    	String Tweet = question.getText();
+    	String tweet = question.getText();
     	String name = question.getScreenName();
-    	String str[] = Tweet.split(" ");
+    	String str[] = tweet.split(" ");
     	String healPoke = str[0];
     	
     	
-    	if (Tweet.contains("#heal"))
+    	if (tweet.contains("#heal"))
     	{	
     		
     		String nomPoke = question.getSubstring(2);
@@ -25,7 +25,7 @@ public class PokemonHealCell implements SmartCell {
             return "@" + nomPoke + " #stat #PV ?" + " #PokeBattle"; 
     	}
     	
-    	if (Tweet.contains("PV=") && healPoke.contains("heal_joelle"))
+    	if (tweet.contains("PV=") && healPoke.contains("heal_joelle"))
     	{
     		
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");

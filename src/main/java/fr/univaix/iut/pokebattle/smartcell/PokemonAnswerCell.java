@@ -10,14 +10,14 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonAnswerCell implements SmartCell{
     public String ask(Tweet question) {
     	
-    	String Tweet = question.getText();
-    	String Name = question.getScreenName();
+    	String tweet = question.getText();
+    	String name = question.getScreenName();
     	
     	
-    	if (Tweet.contains("Salut"))
+    	if (tweet.contains("Salut"))
     	{
     		
-    		String str[] = Tweet.split(" ");
+    		String str[] = tweet.split(" ");
     		String nompoke = str[0].substring(1);
     		
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
@@ -27,7 +27,7 @@ public class PokemonAnswerCell implements SmartCell{
             
             em.close();
             emf.close();
-    		return "@" + Name + " " + poke.getCri() + " #PokeBattle";
+    		return "@" + name + " " + poke.getCri() + " #PokeBattle";
     	}
     	return null ;
     	}

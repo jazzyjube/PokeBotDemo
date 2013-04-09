@@ -18,10 +18,10 @@ public class PokemonAttakCell implements SmartCell {
 	
     public String ask(Tweet question) {   	
     	
-    	String Tweet = question.getText();
-    	String Name = question.getScreenName();
+    	String tweet = question.getText();
+    	String name = question.getScreenName();
     	
-    	String str[] = Tweet.split(" ");
+    	String str[] = tweet.split(" ");
 
     	String attack = str[2];
     	String pokemon = str[0].substring(1);	
@@ -36,12 +36,12 @@ public class PokemonAttakCell implements SmartCell {
         owner = poke.getNomD();
         
 
-    	if (Tweet.contains("attack") && owner.equals(Name))
+    	if (tweet.contains("attack") && owner.equals(name))
     	{
     		
         	String adversaire = str[3];
-        	String DressAdversaire = str[5];
-        	String Judge = str[6];
+        	String dressAdversaire = str[5];
+        	String judge = str[6];
 	   		
 	    	TypedQuery<Attaque> poss = em.createNamedQuery(Possede.FIND_ALL_BY_POKE, Attaque.class);
 	        poss.setParameter ("pokemon", poke);
@@ -49,15 +49,15 @@ public class PokemonAttakCell implements SmartCell {
 	        
 	        if(!results.contains(atkBD))
 	        {
-	        	return adversaire +  " o_O ? /cc " + DressAdversaire + " @" + Name + " #PokeBattle";
+	        	return adversaire +  " o_O ? /cc " + dressAdversaire + " @" + name + " #PokeBattle";
 	        }
 	        
-    		if (Name.contains(owner)) { 
-    			return adversaire + " #attack " + attack + " /cc " + DressAdversaire 
-    				   + " @" + Name + " " + Judge + " #PokeBattle"; 
+    		if (name.contains(owner)) { 
+    			return adversaire + " #attack " + attack + " /cc " + dressAdversaire 
+    				   + " @" + name + " " + judge + " #PokeBattle"; 
     		}
     		
-    		return "@" + Name + " @" + owner + " is my owner !" + " #PokeBattle";  
+    		return "@" + name + " @" + owner + " is my owner !" + " #PokeBattle";  
     	}
     	
     	return null ;

@@ -18,12 +18,12 @@ public class JudgeWinCell implements SmartCell{
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
-		String NomPokeKO = question.getScreenName();
-    	String Tweet = question.getText();
+		String nomPokeKO = question.getScreenName();
+    	String tweet = question.getText();
     	final int EXP_BASE = 200;
     	
     	
-    	if(Tweet.contains("#KO"))
+    	if(tweet.contains("#KO"))
     	{
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
 	        EntityManager em = emf.createEntityManager();
@@ -31,10 +31,10 @@ public class JudgeWinCell implements SmartCell{
 	        DAOCombat dao = new DAOCombatJpa(em);
 	        
 	        
-	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, NomPokeKO));
+	        List<Combat> combats = dao.findByPoke(em.find(Pokemon.class, nomPokeKO));
 	        Combat combatCourant = combats.get(combats.size() - 1);
 	        
-	        combatCourant.setLoser(NomPokeKO);
+	        combatCourant.setLoser(nomPokeKO);
 	        
 	        Pokemon pokeWin = dao.findWinner(combatCourant.getNumCombat());
 	        combatCourant.setWinner(pokeWin.getNomP());
@@ -45,14 +45,14 @@ public class JudgeWinCell implements SmartCell{
 	        
 	        int level = poke.getLvl();
 	        
-	        int Exp = EXP_BASE * level / 7;
+	        int exp = EXP_BASE * level / 7;
 	        
 	        
-	        Exp = poke.getXp() + Exp;
+	        exp = poke.getXp() + exp;
 	        
 	        em.getTransaction().begin();
 	        
-	        poke.setXp(Exp);
+	        poke.setXp(exp);
 	        
 	        em.persist(poke);
             
@@ -61,7 +61,7 @@ public class JudgeWinCell implements SmartCell{
 	        em.close();
 	        emf.close();
 
-	        return "@" + pokeWin.getNomP() + " #Win +"+Exp+"xp" + " #PokeBattle";
+	        return "@" + pokeWin.getNomP() + " #Win +"+exp+"xp" + " #PokeBattle";
     	}
 		
 		return null;

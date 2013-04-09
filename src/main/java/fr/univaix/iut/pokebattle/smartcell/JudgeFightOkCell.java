@@ -21,17 +21,17 @@ public class JudgeFightOkCell implements SmartCell{
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
-		String Name = question.getScreenName();
-    	String Tweet = question.getText();
+		String name = question.getScreenName();
+    	String tweet = question.getText();
 
 		
-    	if(Tweet.contains("#fight #ok"))
+    	if(tweet.contains("#fight #ok"))
     	{
 
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
 	        EntityManager em = emf.createEntityManager();
 	        
-    		String NomPoke2 = question.getSubstring(4);
+    		String nomPoke2 = question.getSubstring(4);
 
     		DAOCombat dao = new DAOCombatJpa(em);
     		DAOPokemon daoP = new DAOPokemonJPA(em);
@@ -40,14 +40,14 @@ public class JudgeFightOkCell implements SmartCell{
     			List<Combat> combats = dao.findAll();
     			Combat lastCombat = combats.get(combats.size() - 1);
     			
-    			lastCombat.setPoke2(NomPoke2);
+    			lastCombat.setPoke2(nomPoke2);
     			dao.update(lastCombat);
     			
     			Pokemon poke1 = daoP.getById(lastCombat.getPoke1());
 	    		String dress1 = poke1.getNomD();
 	    		
-	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + Name 
-	    				+ " with @" + NomPoke2 + " fight now" + " #PokeBattle";
+	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + name 
+	    				+ " with @" + nomPoke2 + " fight now" + " #PokeBattle";
 	    	}
 	            
 	    //}

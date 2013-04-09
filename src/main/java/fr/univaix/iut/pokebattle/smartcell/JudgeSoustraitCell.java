@@ -13,23 +13,23 @@ public class JudgeSoustraitCell implements SmartCell{
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
-    	String DressAdv = question.getSubstring(4);
-    	String Tweet = question.getText();
+    	String dressAdv = question.getSubstring(4);
+    	String tweet = question.getText();
     	
-    	if(!(DressAdv.equals("/cc")) && Tweet.contains("#attack"))
+    	if(!(dressAdv.equals("/cc")) && tweet.contains("#attack"))
     	{
-    		String NomPokeAdv = question.getSubstring(0);
-    		String Dress = question.getSubstring(5);
+    		String nomPokeAdv = question.getSubstring(0);
+    		String dress = question.getSubstring(5);
     		
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
 
-            Pokemon poke = em.find(Pokemon.class, NomPokeAdv);
+            Pokemon poke = em.find(Pokemon.class, nomPokeAdv);
             poke.setPvRestant(poke.getPvRestant() - 10);
             em.close();
             emf.close();
             
-            return "@" + NomPokeAdv + " -10pv /cc @" + DressAdv + " by @" + Dress + " #PokeBattle";
+            return "@" + nomPokeAdv + " -10pv /cc @" + dressAdv + " by @" + dress + " #PokeBattle";
     	}
 		
 		return null;

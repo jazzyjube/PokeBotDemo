@@ -11,39 +11,39 @@ public class PokemonInfosCell implements SmartCell {
 	
     public String ask(Tweet question) {
     	
-    	String Tweet = question.getText();
+    	String tweet = question.getText();
     	String name = question.getScreenName();
     
     	
     	
-    	if (Tweet.contains("stat"))
+    	if (tweet.contains("stat"))
     	{	
-    		String str[] = Tweet.split(" ");
+    		String str[] = tweet.split(" ");
     		String nompoke = str[0].substring(1);
     		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
 
             Pokemon poke = em.find(Pokemon.class, nompoke);
             
-            if(Tweet.contains("level")){
+            if(tweet.contains("level")){
             	
             	int level = poke.getLvl();
             	return "@"+ name + " #level=" + level + " #PokeBattle";
             	
             }
             
-            if(Tweet.contains("xp")){
+            if(tweet.contains("xp")){
             	
-            	int XP = poke.getXp();
-            	return "@"+ name + " #XP=" + XP + " #PokeBattle";
+            	int xp = poke.getXp();
+            	return "@"+ name + " #XP=" + xp + " #PokeBattle";
             	
             }
             
-            if(Tweet.contains("pv")){
+            if(tweet.contains("pv")){
             	
-            	int PVrestant = poke.getPvRestant();
-            	int PVmax = poke.getPvMax();
-            	return "@"+ name + " #PV=" + PVrestant + "/" +PVmax + " #PokeBattle";
+            	int pvRestant = poke.getPvRestant();
+            	int pvMax = poke.getPvMax();
+            	return "@"+ name + " #PV=" + pvRestant + "/" +pvMax + " #PokeBattle";
             	
             }
 
