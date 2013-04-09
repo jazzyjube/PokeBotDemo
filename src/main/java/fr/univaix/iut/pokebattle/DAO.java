@@ -8,14 +8,14 @@ public interface DAO<T, ID> {
      *
      * @param obj
      */
-    public boolean delete(T obj);
+    boolean delete(T obj);
 
     /**
      * Permet de récupérer tous les objets d'une table
      *
      * @return
      */
-    public List<T> findAll();
+    List<T> findAll();
 
     /**
      * Permet de récupérer un objet via son ID
@@ -23,14 +23,14 @@ public interface DAO<T, ID> {
      * @param id
      * @return
      */
-    public T getById(ID id);
+    T getById(ID id);
 
     /**
      * Permet de créer une entrée dans la base de données par rapport à un objet
      *
      * @param obj
      */
-    public T insert(T obj);
+    T insert(T obj);
 
     /**
      * Permet de mettre à jour les données d'un tuple dans la base à partir d'un
@@ -38,6 +38,6 @@ public interface DAO<T, ID> {
      *
      * @param obj
      */
-    public boolean update(T obj);
+    boolean update(T obj);
 
 }

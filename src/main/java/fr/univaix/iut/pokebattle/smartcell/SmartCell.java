@@ -13,5 +13,5 @@ public interface SmartCell {
      *         or null.
      * @throws TwitterException 
      */
-    public abstract String ask(Tweet question) throws TwitterException;
+    abstract String ask(Tweet question) throws TwitterException;
 }

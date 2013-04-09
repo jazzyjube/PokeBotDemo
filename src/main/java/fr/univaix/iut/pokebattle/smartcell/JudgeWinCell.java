@@ -22,7 +22,7 @@ public class JudgeWinCell implements SmartCell{
 		
 		String nomPokeKO = question.getScreenName();
     	String tweet = question.getText();
-    	final int exp_base = 200;
+    	final int expbase = 200;
     	
     	
     	if(tweet.contains("#KO"))
@@ -47,7 +47,7 @@ public class JudgeWinCell implements SmartCell{
 	        
 	        int level = poke.getLvl();
 	        
-	        int exp = exp_base * level / EXPDIV;
+	        int exp = expbase * level / EXPDIV;
 	        
 	        
 	        exp = poke.getXp() + exp;
