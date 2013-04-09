@@ -49,8 +49,6 @@ public class JudgeFightOkCell implements SmartCell{
 	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + name 
 	    				+ " with @" + nomPoke2 + " fight now" + " #PokeBattle";
 	    	}
-	            
-	    //}
 	    	
 			return null;
 	}

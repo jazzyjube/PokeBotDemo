@@ -12,8 +12,7 @@ public class App
         // Initializes the Entity manager
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
         EntityManager em = emf.createEntityManager();
-
-        Pokemon pika = em.find(Pokemon.class, "sala_meche");
+        
         em.close();
         emf.close();
     }
