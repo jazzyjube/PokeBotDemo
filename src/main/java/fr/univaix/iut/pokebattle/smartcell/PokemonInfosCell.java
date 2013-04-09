@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -20,8 +21,8 @@ public class PokemonInfosCell implements SmartCell {
     	{	
     		String str[] = tweet.split(" ");
     		String nompoke = str[0].substring(1);
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-            EntityManager em = emf.createEntityManager();
+    		
+    		EntityManager em = DAOFactoryJPA.getEntityManager();
 
             Pokemon poke = em.find(Pokemon.class, nompoke);
             
@@ -48,7 +49,6 @@ public class PokemonInfosCell implements SmartCell {
             }
 
             em.close();
-            emf.close();
           
     	}
     	return null ;
