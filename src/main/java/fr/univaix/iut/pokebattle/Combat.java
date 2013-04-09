@@ -22,19 +22,19 @@ public class Combat {
     public static final String FIND_ALL = "findAllCombat";  
 	@Id
 	 @Column(name = "NUM_COMBAT")
-  Integer numCombat;
+	private Integer numCombat;
 	
 	@Column(name = "POKE_1")
-	  String poke1;
+	private String poke1;
 	
 	@Column(name = "POKE_2")
-	  String poke2;
+	private String poke2;
 	
 	@Column(name = "WINNER")
-	  String winner;
+	private String winner;
 	
 	@Column(name = "LOSER")
-	  String loser;
+	private String loser;
 	
 	
 

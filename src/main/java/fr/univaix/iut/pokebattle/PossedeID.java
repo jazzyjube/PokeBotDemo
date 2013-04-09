@@ -70,7 +70,7 @@ public class PossedeID {
 	}
 
 
-	String pokemon;
-	String attaque;
+	private String pokemon;
+	private String attaque;
 	
 }

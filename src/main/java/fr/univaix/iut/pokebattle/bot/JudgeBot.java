@@ -14,7 +14,7 @@ public class JudgeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
-	final SmartCell[] smartCells = new SmartCell[]{
+	private final SmartCell[] smartCells = new SmartCell[]{
             new JudgeSoustraitCell(),
             new JudgeWinCell(),
             new JudgeStartFightCell(),

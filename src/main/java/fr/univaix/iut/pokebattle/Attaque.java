@@ -8,10 +8,10 @@ public class Attaque {
 	
 	@Id
 	@Column(name="NOM_A")
-	String nomA;
+	private String nomA;
 	
 	@Column(name="PPMAX")
-	int ppMax;
+	private int ppMax;
 
 	public Attaque(){}
 	public Attaque(String nomA, int ppMax) {
