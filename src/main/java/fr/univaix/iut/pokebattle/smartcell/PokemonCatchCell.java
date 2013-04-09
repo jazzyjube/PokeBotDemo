@@ -24,8 +24,6 @@ public class PokemonCatchCell implements SmartCell {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
             EntityManager em = emf.createEntityManager();
             
-            System.out.println(NomPoke);
-            
             Pokemon poke = em.find(Pokemon.class, NomPoke);
             
             
