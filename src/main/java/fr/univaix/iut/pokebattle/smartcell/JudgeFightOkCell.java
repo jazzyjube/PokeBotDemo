@@ -48,7 +48,8 @@ public class JudgeFightOkCell implements SmartCell{
     			Pokemon poke1 = daoP.getById(lastCombat.getPoke1());
 	    		String dress1 = poke1.getNomD();
 	    		
-	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + Name + " with @" + NomPoke2 + " fight now";
+	    		return "@" +  dress1 + " with @" + poke1.getNomP() + " vs @" + Name 
+	    				+ " with @" + NomPoke2 + " fight now" + " #PokeBattle";
 	    	}
 	            
 	    //}

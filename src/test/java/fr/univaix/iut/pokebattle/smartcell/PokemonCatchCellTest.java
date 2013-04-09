@@ -21,7 +21,7 @@ public class PokemonCatchCellTest {
     @Test
     public void testCatchAnswer() throws TwitterException {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche Pokeball !!");
-        assertEquals("@maitre_peter @maitre_peter is my owner", cell.ask(tweet));
+        assertEquals("@maitre_peter @maitre_peter is my owner #PokeBattle", cell.ask(tweet));
     }
 
 }

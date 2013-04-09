@@ -16,13 +16,13 @@ public class PokemonHealCellTest {
     @Test
     public void testFirstHeal() {
     	Tweet tweet = new Tweet("maitre_peter", "@heal_joelle #heal @sala_meche");
-        assertEquals("@sala_meche #stat #PV ?", cell.ask(tweet));
+        assertEquals("@sala_meche #stat #PV ? #PokeBattle", cell.ask(tweet));
     }
     @Ignore
     @Test
     public void testSecondHeal() {
     	Tweet tweet = new Tweet("sala_meche", "@heal_joelle #PV=50/100");
-        assertEquals("@sala_meche come in the #pokecenter / @PokeTimer #WakeMeUp 5 Min #Jazz #sala_meche", cell.ask(tweet));
+        assertEquals("@sala_meche come in the #pokecenter / @PokeTimer #WakeMeUp 5 Min #Jazz #sala_meche #PokeBattle", cell.ask(tweet));
     }
     @Ignore
     @Test

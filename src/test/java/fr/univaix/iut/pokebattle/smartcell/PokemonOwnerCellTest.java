@@ -13,13 +13,13 @@ public class PokemonOwnerCellTest {
     @Test
     public void testSalutOwner() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche Owner ?");
-        assertEquals("@maitre_peter @maitre_peter is my owner", cell.ask(tweet));
+        assertEquals("@maitre_peter @maitre_peter is my owner #PokeBattle", cell.ask(tweet));
     }
 
     @Test
     public void testOwnerAnswerNo() throws TwitterException {
       Tweet tweet = new Tweet("maitre_peter", "@mew_sauvage Owner ?");
-        assertEquals("@maitre_peter No owner", cell.ask(tweet));
+        assertEquals("@maitre_peter No owner #PokeBattle", cell.ask(tweet));
     }
 
 }

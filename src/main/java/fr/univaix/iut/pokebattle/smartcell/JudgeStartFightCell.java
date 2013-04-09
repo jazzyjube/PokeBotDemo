@@ -41,7 +41,7 @@ public class JudgeStartFightCell implements SmartCell{
 	    		Combat comb = new Combat((lastComb.getNumCombat() + 1), NomPoke1, null, null, null);
 	    		dao.insert(comb);
 	    		
-	    		return "@" + Name + " @" + NomPoke1 + " registered";
+	    		return "@" + Name + " @" + NomPoke1 + " registered" + " #PokeBattle";
     		}
             
     	}

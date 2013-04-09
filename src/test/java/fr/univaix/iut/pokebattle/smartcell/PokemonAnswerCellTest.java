@@ -13,7 +13,7 @@ public class PokemonAnswerCellTest {
     @Test
     public void testSalutAnswer() {
     	Tweet tweet = new Tweet("maitre_peter", "@sala_meche Salut Salamèche !");
-        assertEquals("@maitre_peter Sala Sala Salameeeeche", cell.ask(tweet));
+        assertEquals("@maitre_peter Sala Sala Salameeeeche #PokeBattle", cell.ask(tweet));
     }
 
     @Test

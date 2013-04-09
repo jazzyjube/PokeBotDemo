@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.Possede;
 import fr.univaix.iut.pokebattle.PossedeID;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
@@ -32,7 +31,7 @@ public class PokemonAttakInfoCell implements SmartCell {
             em.close();
             emf.close();
             
-    		return "@" + Name + " #" + nomAttaque + " #PPrestant="+ poke.getPpRestant();
+    		return "@" + Name + " #" + nomAttaque + " #PPrestant="+ poke.getPpRestant() + " #PokeBattle";
     	}
     	return null ;
     	}
