@@ -34,22 +34,34 @@ public class PossedeID {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		PossedeID other = (PossedeID) obj;
 		if (attaque == null) {
 			if (other.attaque != null)
 				return false;
-		} else if (!attaque.equals(other.attaque))
+		} 
+		else if (!attaque.equals(other.attaque))
+		{
 			return false;
+		}
 		if (pokemon == null) {
 			if (other.pokemon != null)
 				return false;
-		} else if (!pokemon.equals(other.pokemon))
+		} 
+		else if (!pokemon.equals(other.pokemon))
+		{
 			return false;
+		}
 		return true;
 	}
 
