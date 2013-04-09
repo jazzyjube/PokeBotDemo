@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
@@ -20,8 +21,7 @@ public class PokemonCatchCell implements SmartCell {
     	if (tweet.contains("Pokeball"))
     	{
     		
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-            EntityManager em = emf.createEntityManager();
+    		EntityManager em = DAOFactoryJPA.getEntityManager();
             
             Pokemon poke = em.find(Pokemon.class, nomPoke);
             
@@ -36,7 +36,7 @@ public class PokemonCatchCell implements SmartCell {
     				em.getTransaction().commit();
     				
     				em.close();
-    	            emf.close();
+    	           
     	            TwitterFactory.getSingleton().updateProfile(null, null, poke.getLocalisation(), 
     	            		"#pokebattle - #pokemon - Owner : @" + name + " - Level: " + poke.getLvl());
     				return "@" + name + " @" + name + " is my new owner !!!" + " #PokeBattle";
@@ -45,7 +45,6 @@ public class PokemonCatchCell implements SmartCell {
     			else
     			{
     				em.close();
-    	            emf.close();
     	            return "@" + name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
     			}
     				

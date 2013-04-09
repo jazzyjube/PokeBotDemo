@@ -11,6 +11,7 @@ import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.Combat;
 import fr.univaix.iut.pokebattle.DAOCombat;
 import fr.univaix.iut.pokebattle.DAOCombatJpa;
+import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.DAOPokemon;
 import fr.univaix.iut.pokebattle.DAOPokemonJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
@@ -27,14 +28,10 @@ public class JudgeFightOkCell implements SmartCell{
 		
     	if(tweet.contains("#fight #ok"))
     	{
-
-    		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle");
-	        EntityManager em = emf.createEntityManager();
-	        
     		String nomPoke2 = question.getSubstring(4);
 
-    		DAOCombat dao = new DAOCombatJpa(em);
-    		DAOPokemon daoP = new DAOPokemonJPA(em);
+    		DAOCombat dao = DAOFactoryJPA.createDAOCombat();
+    		DAOPokemon daoP = DAOFactoryJPA.createDAOPokemon();
     		
 
     			List<Combat> combats = dao.findAll();
