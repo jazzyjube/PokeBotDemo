@@ -34,7 +34,9 @@ public class JudgeBot implements Bot {
         for (SmartCell cell : smartCells) {
             String answer = cell.ask(question);
             if (answer != null)
+            {
                 return answer;
+            }
         }
         return null;
     }
