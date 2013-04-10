@@ -15,6 +15,10 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonAttakCell implements SmartCell {
 	
+	static final int INDEX_ADV = 3;
+	static final int INDEX_DRESS_ADV = 5;
+	static final int JUDGE = 6;
+	
     public String ask(Tweet question) {   	
     	
     	String tweet = question.getText();
@@ -37,9 +41,9 @@ public class PokemonAttakCell implements SmartCell {
     	if (tweet.contains("attack") && owner.equals(name))
     	{
     		
-        	String adversaire = str[3];
-        	String dressAdversaire = str[5];
-        	String judge = str[6];
+        	String adversaire = str[INDEX_ADV];
+        	String dressAdversaire = str[INDEX_DRESS_ADV];
+        	String judge = str[JUDGE];
 	   		
 	    	TypedQuery<Attaque> poss = em.createNamedQuery(Possede.FIND_ALL_BY_POKE, Attaque.class);
 	        poss.setParameter ("pokemon", poke);

@@ -10,18 +10,15 @@ import fr.univaix.iut.pokebattle.tuse.Credentials;
 import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 
 public class BotRunner {
-    static public void runBot(Bot bot, String credentialsFileName) {
+    public static void runBot(Bot bot, String credentialsFileName) {
         try {
             InputStream inputStream = getResourceAsStream(credentialsFileName);
             Credentials credentials = Credentials.loadCredentials(inputStream);
             TwitterBot twitterBot = new TwitterBot(bot, credentials);
             twitterBot.startBot();
         } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (ControlStreamException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
