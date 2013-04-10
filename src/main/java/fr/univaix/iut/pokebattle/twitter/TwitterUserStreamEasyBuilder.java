@@ -13,7 +13,7 @@ import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
 import fr.univaix.iut.pokebattle.tuse.UserStreamAdapter;
 
 public class TwitterUserStreamEasyBuilder {
-    private final static Logger LOGGER = LoggerFactory.getLogger(TwitterBot.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TwitterBot.class);
     private Credentials credentials;
     private Twitter twitter;
     private Bot bot;
@@ -32,7 +32,6 @@ public class TwitterUserStreamEasyBuilder {
                 try {
                     processNewQuestion(status, bot);
                 } catch (TwitterException e) {
-                    e.printStackTrace();
                 }
             }
         };
