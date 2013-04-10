@@ -1,0 +1,10 @@
+Notre bot effectif est bien en cours d'éxécution sur Heroku.
+
+git@heroku.com:pokemon.git
+
+Lien de notre répertoire GitHub :
+https://github.com/jazzyjube/PokeBotDemo.git
+
+Vous pouvez donc vous amuser à contacter @dialga_shiny avec des messages tels que "Salut", "Owner", etc...
+
+L'intégralité des fonctionnalités sont implémentées et les tests fonctionnent tous avec DBUnit.
