@@ -13,6 +13,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeFightOkCell implements SmartCell{
 
+	static final int INDEX_NOMPOKE_2 = 4;
 	@Override
 	public String ask(Tweet question) throws TwitterException {
 		
@@ -22,7 +23,7 @@ public class JudgeFightOkCell implements SmartCell{
 		
     	if(tweet.contains("#fight #ok"))
     	{
-    		String nomPoke2 = question.getSubstring(4);
+    		String nomPoke2 = question.getSubstring(INDEX_NOMPOKE_2);
 
     		DAOCombat dao = DAOFactoryJPA.createDAOCombat();
     		DAOPokemon daoP = DAOFactoryJPA.createDAOPokemon();

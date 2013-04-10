@@ -32,8 +32,6 @@ public class PokemonCatchCell implements SmartCell {
     				poke.setNomD(name);
     				em.persist(poke);
     				em.getTransaction().commit();
-    				
-    				//em.close();
     	           
     	            TwitterFactory.getSingleton().updateProfile(null, null, poke.getLocalisation(), 
     	            		"#pokebattle - #pokemon - Owner : @" + name + " - Level: " + poke.getLvl());
@@ -42,7 +40,6 @@ public class PokemonCatchCell implements SmartCell {
     				
     			else
     			{
-    				//em.close();
     	            return "@" + name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
     			}
     				
