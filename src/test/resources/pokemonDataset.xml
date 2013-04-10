@@ -1,0 +1,25 @@
+<dataset>
+    <POKEMON NOM_P="sala_meche" NOM_D="maitre_peter" PVMAX="100" PVRESTANT="0" XP="0"
+    		 LVL="1" CRI="Sala Sala Salameeeeche" TYPE1="FIRE" LOCALISATION="Bourg Palette" 
+    		 NOM_REEL_P="Salamèche"/>
+    		 
+    <POKEMON NOM_P="kai_minus" NOM_D="topdresseur_red" PVMAX="100" PVRESTANT="50" XP="0"
+    		 LVL="5" TYPE1="WATER"
+    		 NOM_REEL_P="Kaiminus"/>
+    		 
+    <POKEMON NOM_P="dialga_shiny" NOM_D="maitre_peter" PVMAX="100" PVRESTANT="100" XP="0"
+    		 LVL="100"
+    		 NOM_REEL_P="Dialga"/>
+    		 
+    <POKEMON NOM_P="mew_sauvage" />
+    
+    <ATTAQUE NOM_A="griffe" PPMAX="35" />
+    
+    <POSSEDE NOM_P="sala_meche" NOM_A="griffe"/>
+    <POSSEDE NOM_P="kai_minus" NOM_A="griffe"/>
+    
+    <COMBAT NUM_COMBAT="1" POKE_1="sala_meche" POKE_2="kai_minus" />
+    <COMBAT NUM_COMBAT="2" POKE_1="dialga_shiny"/>
+    
+
+</dataset>

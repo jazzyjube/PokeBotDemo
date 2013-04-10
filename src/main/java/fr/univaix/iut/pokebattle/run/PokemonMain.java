@@ -34,12 +34,14 @@ public class PokemonMain {
     	
     	Map<String, String> props = createConfigurationMap();
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattlePU", props);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pokebattle", props);
         EntityManager em = emf.createEntityManager();
 
         DAOFactoryJPA.setEntityManager(em);
     	
-    	BotRunner.runBot(new PokeBot(), "twitter4jKai.properties");
+        
+        
+    	BotRunner.runBot(new PokeBot(), "twitter4jDialga.properties");
         
         
     }

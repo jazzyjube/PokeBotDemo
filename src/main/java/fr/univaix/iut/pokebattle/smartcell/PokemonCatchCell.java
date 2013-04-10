@@ -1,8 +1,6 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -35,7 +33,7 @@ public class PokemonCatchCell implements SmartCell {
     				em.persist(poke);
     				em.getTransaction().commit();
     				
-    				em.close();
+    				//em.close();
     	           
     	            TwitterFactory.getSingleton().updateProfile(null, null, poke.getLocalisation(), 
     	            		"#pokebattle - #pokemon - Owner : @" + name + " - Level: " + poke.getLvl());
@@ -44,7 +42,7 @@ public class PokemonCatchCell implements SmartCell {
     				
     			else
     			{
-    				em.close();
+    				//em.close();
     	            return "@" + name + " @" + poke.getNomD() + " is my owner" + " #PokeBattle";
     			}
     				

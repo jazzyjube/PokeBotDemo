@@ -1,8 +1,6 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAOFactoryJPA;
@@ -27,7 +25,6 @@ public class PokemonKOCell implements SmartCell{
     		
 	        Pokemon poke = em.find(Pokemon.class, nomPoke);
 	        
-	        em.close();
 
 	        if (poke.getPvRestant() <= 0)
 	        {	
