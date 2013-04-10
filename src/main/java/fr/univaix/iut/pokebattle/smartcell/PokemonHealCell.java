@@ -1,8 +1,6 @@
 package fr.univaix.iut.pokebattle.smartcell;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import fr.univaix.iut.pokebattle.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.Pokemon;
@@ -37,8 +35,7 @@ public class PokemonHealCell implements SmartCell {
             String dresseur = poke.getNomD();
             
             if (pvRest == pvMax){
-            	
-            	em.close();
+
             	
             	return "@" + dresseur + " @" + name + " is already full of health !" + " #PokeBattle";
             }
@@ -69,11 +66,9 @@ public class PokemonHealCell implements SmartCell {
         		++k;
         	}
  		          
-            
-            em.close();
 
     		return "@" + name + " come in the #pokecenter / @PokeTimer #WakeMeUp " 
-    				+ minutes + " Min #Jazz #"+ name + "# PokeBattle";
+    				+ minutes + " Min #Jazz #" + name + " #PokeBattle";
 
     	}
  	

@@ -7,6 +7,7 @@
 		<class>fr.univaix.iut.pokebattle.Attaque</class>
 		<class>fr.univaix.iut.pokebattle.Possede</class>
 		<class>fr.univaix.iut.pokebattle.Combat</class>
+		<class>fr.univaix.iut.pokebattle.PeutApprendre</class>
 
     <properties>
         <property name="eclipselink.target-database" value="Derby" />
@@ -15,6 +16,7 @@
         <property name="javax.persistence.jdbc.user" value="" />
         <property name="javax.persistence.jdbc.password" value="" />
         <property name="eclipselink.logging.level" value="INFO" />
+        <property name="eclipselink.ddl-generation.output-mode" value="database"/>
         <property name="eclipselink.ddl-generation"  value="create-tables"/>
     </properties>
   </persistence-unit>
